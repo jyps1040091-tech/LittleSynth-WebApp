@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LittleSynth - Web Audio Piano</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎹 LittleSynth</h1>
+        
+        <!-- 波形選擇 -->
+        <div class="wave-selector">
+            <h2>波形選擇</h2>
+            <label>
+                <input type="radio" name="waveform" value="sine" checked>
+                <span>正弦波 (Sine)</span>
+            </label>
+            <label>
+                <input type="radio" name="waveform" value="square">
+                <span>方波 (Square)</span>
+            </label>
+            <label>
+                <input type="radio" name="waveform" value="sawtooth">
+                <span>鋸齒波 (Saw)</span>
+            </label>
+            <label>
+                <input type="radio" name="waveform" value="triangle">
+                <span>三角波 (Triangle)</span>
+            </label>
+            <label>
+                <input type="radio" name="waveform" value="noise">
+                <span>白雜訊 (White Noise)</span>
+            </label>
+        </div>
+
+        <!-- 狀態顯示 -->
+        <div class="status">
+            <div class="status-item">
+                <span class="label">目前波形：</span>
+                <span class="value" id="currentWaveform">Sine</span>
+            </div>
+            <div class="status-item">
+                <span class="label">目前音名：</span>
+                <span class="value" id="currentNote">-</span>
+            </div>
+            <div class="status-item">
+                <span class="label">目前頻率：</span>
+                <span class="value" id="currentFrequency">-</span>
+            </div>
+        </div>
+
+        <!-- 波形圖顯示 -->
+        <div class="canvas-container">
+            <h2>波形圖</h2>
+            <canvas id="waveCanvas" width="800" height="300"></canvas>
+        </div>
+
+        <!-- 琴鍵 -->
+        <div class="keyboard">
+            <h2>琴鍵</h2>
+            <div class="white-keys">
+                <button class="key white-key" data-frequency="261" data-note="C4">C4</button>
+                <button class="key white-key" data-frequency="293" data-note="D4">D4</button>
+                <button class="key white-key" data-frequency="329" data-note="E4">E4</button>
+                <button class="key white-key" data-frequency="349" data-note="F4">F4</button>
+                <button class="key white-key" data-frequency="392" data-note="G4">G4</button>
+                <button class="key white-key" data-frequency="440" data-note="A4">A4</button>
+                <button class="key white-key" data-frequency="493" data-note="B4">B4</button>
+                <button class="key white-key" data-frequency="523" data-note="C5">C5</button>
+            </div>
+            <div class="black-keys">
+                <button class="key black-key" data-frequency="277" data-note="C#4">C#4</button>
+                <button class="key black-key" data-frequency="311" data-note="D#4">D#4</button>
+                <button class="key black-key" data-frequency="369" data-note="F#4">F#4</button>
+                <button class="key black-key" data-frequency="415" data-note="G#4">G#4</button>
+                <button class="key black-key" data-frequency="466" data-note="A#4">A#4</button>
+            </div>
+        </div>
+
+        <!-- 鍵盤快捷鍵說明 -->
+        <div class="keyboard-shortcuts">
+            <h3>鍵盤快捷鍵</h3>
+            <p>白鍵: Z X C V B N M , (C4-C5)</p>
+            <p>黑鍵: S D G H J (C#4-A#4)</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
